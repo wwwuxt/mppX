@@ -9,6 +9,7 @@ struct Human
 {
  char mName[3];
  int nAge;
+ char m[2];
 };
 struct Human2
 {
@@ -51,7 +52,7 @@ int main()
     memset(res,0,sizeof(res));
     
     Human huTest;
-    cout<<"Human结构体的字节数，包含因字节对齐而添加的一个字节，即3+1+4=::::"<<sizeof(Human)<<endl;
+    cout<<"Human结构体的字节数，包含因字节对齐而添加的一个字节，最大成员的整数倍，即3+1+4+2+2=::::"<<sizeof(Human)<<endl;
     cout<<"huTest:"<<sizeof(huTest)<<endl;
     cout<<"Human2结构体的字节数，字节完整：："<<sizeof(Human2)<<endl;
     
