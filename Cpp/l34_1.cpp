@@ -21,6 +21,12 @@ int main()
     // 不同的Computer对象应该拥有不同的Keyboard对象
     assert(newcom.GetKeyboard() != oldcom.GetKeyboard());
     // 因为是复制，不同的Keyboard对象应该是相同的型号
-    assert(newcom.GetKeyboard()->m_strModel != oldcom.GetKeyboard()->m_strModel);
+    assert(newcom.GetKeyboard()->m_strModel == oldcom.GetKeyboard()->m_strModel);
+    
+    
+    Computer newcom1;
+    newcom1 = oldcom;
+    assert(newcom1.GetKeyboard() != oldcom.GetKeyboard());
+    assert(newcom1.GetKeyboard()->m_strModel == oldcom.GetKeyboard()->m_strModel);
     return 0;
 }

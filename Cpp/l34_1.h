@@ -40,6 +40,22 @@ public:
         //m_pKeyboard = nullptr;
     }
 
+    // 自定义的赋值操作符
+    Computer& operator = (const Computer& com)
+    {
+        // 判断是否是自己给自己赋值
+        // 如果是自赋值，则直接返回对象本身
+        // 这里的this指针，是类当中隐含的一个指向自身对象的指针
+        if (this == &com) return *this;
+
+        // 直接完成对象型成员变量的赋值
+        m_strModel = com.m_strModel;
+
+        // 创建旧有对象指针型成员变量所指向对象的副本
+        // 并将赋值对象相应的指针型成员变量指向这个副本对象
+        m_pKeyboard = new Keyboard(*(com.GetKeyboard()));
+    }
+
     // 成员函数，设置或获得键盘对象指针
     void SetKeyboard(Keyboard* pKeyboard)
     {
