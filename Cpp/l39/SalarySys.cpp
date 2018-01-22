@@ -304,9 +304,22 @@ public:
             }
         }
     }
+    int GetMaxCount()
+    {
+        int nTotal = 0;
+        // 使用count_if() 算法统计工资大于1000的员工人数
+        nTotal = count_if(m_vecEmp.begin(),     // 统计范围开始
+            m_vecEmp.end(),                     // 统计范围结束
+            [=](Employee* p)->bool              // 统计规则
+            {
+                return p->GetSalary() > 1000;
+            });
+        return nTotal;
+    }
 private:
     const string m_strFileName;
     Employee* m_arrEmp[MAX];
+    vector<Employee*> n_vecEmp;
     int m_nCount;
 };
 
